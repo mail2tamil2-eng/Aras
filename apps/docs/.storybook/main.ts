@@ -8,7 +8,8 @@ const config: StorybookConfig = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(ts|tsx)', '../../../packages/*/src/**/*.stories.@(ts|tsx)'],
   addons: ['@storybook/addon-docs', '@storybook/addon-a11y'],
   // Demo images (covers, logos) used by card and marketing stories.
-  staticDirs: ['../public'],
+  // Not named public/: Vite would copy that folder too, and the two copies race (EEXIST on Vercel).
+  staticDirs: ['../static'],
   framework: { name: '@storybook/react-vite', options: {} },
   docs: { defaultName: 'Docs' },
   async viteFinal(viteConfig) {
