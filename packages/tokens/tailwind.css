@@ -114,6 +114,87 @@
   --ease-exit: var(--aras-motion-easing-exit);
 }
 
+/*
+  Motion: enter/exit animations for overlays, menus, accordions and toasts.
+  Durations come from ARAS motion tokens, which become 0ms when the user asks for reduced motion.
+  Use with Radix data-state, e.g. data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out.
+*/
+@theme {
+  --animate-*: initial;
+  --animate-spin: spin 1s linear infinite;
+  --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-fade-in: aras-fade-in var(--aras-motion-duration-base) var(--aras-motion-easing-enter);
+  --animate-fade-out: aras-fade-out var(--aras-motion-duration-fast) var(--aras-motion-easing-exit);
+  --animate-pop-in: aras-pop-in var(--aras-motion-duration-base) var(--aras-motion-easing-enter);
+  --animate-pop-out: aras-pop-out var(--aras-motion-duration-fast) var(--aras-motion-easing-exit);
+  --animate-slide-in-right: aras-slide-in-right var(--aras-motion-duration-slow) var(--aras-motion-easing-enter);
+  --animate-slide-out-right: aras-slide-out-right var(--aras-motion-duration-base) var(--aras-motion-easing-exit);
+  --animate-slide-in-left: aras-slide-in-left var(--aras-motion-duration-slow) var(--aras-motion-easing-enter);
+  --animate-slide-out-left: aras-slide-out-left var(--aras-motion-duration-base) var(--aras-motion-easing-exit);
+  --animate-slide-in-top: aras-slide-in-top var(--aras-motion-duration-slow) var(--aras-motion-easing-enter);
+  --animate-slide-out-top: aras-slide-out-top var(--aras-motion-duration-base) var(--aras-motion-easing-exit);
+  --animate-slide-in-bottom: aras-slide-in-bottom var(--aras-motion-duration-slow) var(--aras-motion-easing-enter);
+  --animate-slide-out-bottom: aras-slide-out-bottom var(--aras-motion-duration-base) var(--aras-motion-easing-exit);
+  --animate-expand: aras-expand var(--aras-motion-duration-base) var(--aras-motion-easing-standard);
+  --animate-collapse: aras-collapse var(--aras-motion-duration-base) var(--aras-motion-easing-standard);
+  --animate-marquee: aras-marquee 40s linear infinite;
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  @keyframes pulse {
+    50% { opacity: 0.5; }
+  }
+  @keyframes aras-fade-in {
+    from { opacity: 0; }
+  }
+  @keyframes aras-fade-out {
+    to { opacity: 0; }
+  }
+  @keyframes aras-pop-in {
+    from { opacity: 0; transform: scale(0.96); }
+  }
+  @keyframes aras-pop-out {
+    to { opacity: 0; transform: scale(0.96); }
+  }
+  @keyframes aras-slide-in-right {
+    from { transform: translateX(100%); }
+  }
+  @keyframes aras-slide-out-right {
+    to { transform: translateX(100%); }
+  }
+  @keyframes aras-slide-in-left {
+    from { transform: translateX(-100%); }
+  }
+  @keyframes aras-slide-out-left {
+    to { transform: translateX(-100%); }
+  }
+  @keyframes aras-slide-in-top {
+    from { transform: translateY(-100%); }
+  }
+  @keyframes aras-slide-out-top {
+    to { transform: translateY(-100%); }
+  }
+  @keyframes aras-slide-in-bottom {
+    from { transform: translateY(100%); }
+  }
+  @keyframes aras-slide-out-bottom {
+    to { transform: translateY(100%); }
+  }
+  /* Accordion and Collapsible: Radix sets the content height variable. */
+  @keyframes aras-expand {
+    from { height: 0; opacity: 0; }
+    to { height: var(--radix-collapsible-content-height, var(--radix-accordion-content-height)); opacity: 1; }
+  }
+  @keyframes aras-collapse {
+    from { height: var(--radix-collapsible-content-height, var(--radix-accordion-content-height)); opacity: 1; }
+    to { height: 0; opacity: 0; }
+  }
+  @keyframes aras-marquee {
+    to { transform: translateX(-50%); }
+  }
+}
+
 /* Base page styles */
 @layer base {
   html {

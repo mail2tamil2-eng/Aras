@@ -34,6 +34,10 @@ export const buttonVariants = cva(
         sm: 'h-[var(--aras-control-height-sm)] px-[var(--aras-control-padding-x-sm)] text-small',
         md: 'h-[var(--aras-control-height-md)] px-[var(--aras-control-padding-x-md)] text-body',
         lg: 'h-[var(--aras-control-height-lg)] px-[var(--aras-control-padding-x-lg)] text-body',
+        /** Square icon-only buttons. They must have an aria-label. */
+        'icon-sm': 'size-[var(--aras-control-height-sm)] text-small',
+        'icon-md': 'size-[var(--aras-control-height-md)] text-body',
+        'icon-lg': 'size-[var(--aras-control-height-lg)] text-body',
       },
       fullWidth: {
         true: 'w-full',
@@ -53,10 +57,17 @@ export interface ButtonProps
   asChild?: boolean;
   /** Shows a spinner, disables the button and announces "busy" to screen readers. */
   loading?: boolean;
+  /** Decorative icon before the label. Hidden while loading (the spinner takes its place). */
+  leftIcon?: React.ReactNode;
+  /** Decorative icon after the label, e.g. an arrow for "Continue". */
+  rightIcon?: React.ReactNode;
 }
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, fullWidth, asChild = false, loading = false, disabled, children, type, ...props }, ref) => {
+  (
+    { className, variant, size, fullWidth, asChild = false, loading = false, leftIcon, rightIcon, disabled, children, type, ...props },
+    ref,
+  ) => {
     if (asChild) {
       return (
         <Slot ref={ref} className={cn(buttonVariants({ variant, size, fullWidth }), className)} {...props}>
@@ -74,13 +85,22 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         aria-busy={loading || undefined}
         {...props}
       >
-        {loading && <Spinner />}
+        {loading ? <Spinner /> : leftIcon && <ButtonIcon>{leftIcon}</ButtonIcon>}
         {children}
+        {rightIcon && <ButtonIcon>{rightIcon}</ButtonIcon>}
       </button>
     );
   },
 );
 Button.displayName = 'Button';
+
+function ButtonIcon({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="inline-flex shrink-0 [&>svg]:size-4" aria-hidden="true">
+      {children}
+    </span>
+  );
+}
 
 function Spinner() {
   return (

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Button } from './Button';
+import { ArrowRightIcon, DownloadIcon, PencilIcon, PlusIcon } from '../../icons/icons';
 
 const meta = {
   title: 'Primitives/Button',
@@ -57,5 +58,32 @@ export const AsLink: Story = {
     <Button {...args} asChild>
       <a href="#start">Start learning</a>
     </Button>
+  ),
+};
+
+export const WithIcons: Story = {
+  render: () => (
+    <div className="flex flex-wrap items-center gap-3">
+      <Button leftIcon={<DownloadIcon />}>Download</Button>
+      <Button variant="secondary" rightIcon={<ArrowRightIcon />}>
+        Continue
+      </Button>
+    </div>
+  ),
+};
+
+export const IconOnly: Story = {
+  render: () => (
+    <div className="flex items-center gap-3">
+      <Button size="icon-sm" variant="secondary" aria-label="Add lesson">
+        <PlusIcon className="size-4" />
+      </Button>
+      <Button size="icon-md" variant="tertiary" aria-label="Edit course">
+        <PencilIcon className="size-4" />
+      </Button>
+      <Button size="icon-lg" aria-label="Add course">
+        <PlusIcon className="size-5" />
+      </Button>
+    </div>
   ),
 };

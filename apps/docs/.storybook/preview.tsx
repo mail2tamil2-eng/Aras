@@ -51,7 +51,7 @@ const preview: Preview = {
     // WCAG checks run on every story. 'error' makes violations fail in CI test runs.
     a11y: { test: 'error' },
     options: {
-      storySort: { order: ['Introduction', 'Foundations', 'Primitives', 'Patterns'] },
+      storySort: { order: ['Introduction', 'Foundations', 'Primitives', 'Composites', 'Patterns', 'Marketing'] },
     },
   },
 };

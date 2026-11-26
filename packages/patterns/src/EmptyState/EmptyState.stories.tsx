@@ -47,3 +47,23 @@ export const NoMealPlan: Story = {
     primaryAction: { label: 'Take a photo' },
   },
 };
+
+export const Compact: Story = {
+  name: 'Compact (inside cards and tables)',
+  args: { size: 'sm', title: 'No lessons yet', description: 'Add a lesson to this module.', primaryAction: { label: 'Add lesson' } },
+};
+
+export const FullPage: Story = {
+  name: 'Full page',
+  args: {
+    size: 'lg',
+    title: 'Welcome to your academy',
+    description: 'Create a course, invite learners and track their progress, all in one place.',
+    primaryAction: { label: 'Create your first course' },
+  },
+};
+
+export const Inline: Story = {
+  name: 'Inline (left-aligned)',
+  args: { size: 'sm', align: 'start', title: 'No comments', description: 'Comments from learners will appear here.' },
+};

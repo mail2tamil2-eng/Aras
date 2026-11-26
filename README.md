@@ -22,8 +22,8 @@ aras/
 │  │  ├─ src/brands/      one light + dark file per product
 │  │  ├─ themes.config.mjs  how files combine into themes
 │  │  └─ tailwind.css     maps tokens to Tailwind classes
-│  ├─ ui/            @tamilarasan/aras-ui        Primitives (Button, Input …)
-│  └─ patterns/      @tamilarasan/aras-patterns  SaaS patterns (EmptyState …)
+│  ├─ ui/            @tamilarasan/aras-ui        Primitives, composites and icons (Button, Modal, Table …)
+│  └─ patterns/      @tamilarasan/aras-patterns  Product and marketing patterns (DataTable, PageHeader …)
 ├─ apps/
 │  └─ docs/          Storybook docs site (deployed to Vercel)
 ├─ registry/components.json   every component, its props and status

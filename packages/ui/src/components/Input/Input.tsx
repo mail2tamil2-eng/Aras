@@ -62,6 +62,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             'transition-colors duration-[var(--aras-motion-duration-fast)] motion-reduce:transition-none',
             'focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-focus',
             'disabled:cursor-not-allowed disabled:bg-surface-sunken disabled:text-fg-disabled',
+            'enabled:read-only:bg-surface-sunken enabled:read-only:text-fg-secondary',
             'aria-invalid:border-danger-border',
             sizes[size],
             className,

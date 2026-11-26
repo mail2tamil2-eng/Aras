@@ -18,6 +18,10 @@ export interface EmptyStateProps {
   primaryAction?: { label: string; onClick?: () => void; href?: string };
   secondaryAction?: { label: string; onClick?: () => void; href?: string };
   headingLevel?: 'h2' | 'h3' | 'h4';
+  /** sm: inside cards and tables · md: default · lg: full-page state. */
+  size?: 'sm' | 'md' | 'lg';
+  /** `start` left-aligns for inline use inside lists. */
+  align?: 'center' | 'start';
   className?: string;
 }
 
@@ -28,26 +32,41 @@ export function EmptyState({
   primaryAction,
   secondaryAction,
   headingLevel: Heading = 'h2',
+  size = 'md',
+  align = 'center',
   className,
 }: EmptyStateProps) {
+  const centered = align === 'center';
   return (
     <section
       className={cn(
-        'mx-auto flex max-w-md flex-col items-center gap-[var(--aras-space-md)] rounded-card bg-surface p-[var(--aras-space-xl)] text-center',
+        'flex flex-col gap-[var(--aras-space-md)] rounded-card',
+        centered ? 'mx-auto items-center text-center' : 'items-start text-left',
+        size === 'sm' && 'max-w-sm p-[var(--aras-space-md)]',
+        size === 'md' && 'max-w-md bg-surface p-[var(--aras-space-xl)]',
+        size === 'lg' && 'max-w-lg py-[var(--aras-space-3xl)]',
         className,
       )}
     >
       {icon && (
-        <div className="flex size-12 items-center justify-center rounded-pill bg-brand-subtle text-brand" aria-hidden="true">
+        <div
+          className={cn(
+            'flex items-center justify-center rounded-pill bg-brand-subtle text-brand',
+            size === 'sm' ? 'size-10' : size === 'lg' ? 'size-16' : 'size-12',
+          )}
+          aria-hidden="true"
+        >
           {icon}
         </div>
       )}
       <div className="flex flex-col gap-[var(--aras-space-xs)]">
-        <Heading className="text-h3 text-fg">{title}</Heading>
-        {description && <p className="text-body text-fg-secondary">{description}</p>}
+        <Heading className={cn('text-fg', size === 'sm' ? 'text-body font-semibold' : size === 'lg' ? 'text-h2' : 'text-h3')}>
+          {title}
+        </Heading>
+        {description && <p className={cn('text-fg-secondary', size === 'sm' ? 'text-small' : 'text-body')}>{description}</p>}
       </div>
       {(primaryAction || secondaryAction) && (
-        <div className="flex flex-wrap items-center justify-center gap-[var(--aras-space-sm)]">
+        <div className={cn('flex flex-wrap items-center gap-[var(--aras-space-sm)]', centered && 'justify-center')}>
           {secondaryAction && <ActionButton action={secondaryAction} variant="secondary" />}
           {primaryAction && <ActionButton action={primaryAction} variant="primary" />}
         </div>

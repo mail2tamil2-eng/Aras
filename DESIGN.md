@@ -144,11 +144,12 @@ Patterns also need: **Loading** (skeleton) · **Empty** (EmptyState) · **Error*
 The full list, with props and status, lives in `registry/components.json`.
 Only **Beta** and **Stable** components may be used in products.
 
-| Component | Package | Status |
-|---|---|---|
-| Button | ui | Beta |
-| Input | ui | Beta |
-| EmptyState | patterns | Beta |
+| Group | Components | Package | Status |
+|---|---|---|---|
+| Primitives | Accordion, Avatar, Badge, Breadcrumb, Button, Checkbox, Chip, Collapsible, FileField, Input, Kbd, LoadingButton, Pagination, Popover, Progress, RadioGroup, ScrollArea, Select, Separator, Skeleton, Slider, Spinner, Stepper, Switch, Textarea, Tooltip, VisuallyHidden | ui | Beta |
+| Composites | Card, DropdownMenu, Form, Modal, Sheet (drawer), Table, Tabs, Toast | ui | Beta |
+| Icons | 32 line icons (`CheckIcon`, `ChevronDownIcon` …) | ui | Beta |
+| Product patterns | AppCard (Action, Profile, Notification, Pricing, Summary), ComplianceCard, DataTable, EmptyState, PageHeader, StatsCard | patterns | Beta |
+| Marketing patterns | AnnouncementBar, ContentCards (Featured, Blog, Feature), CtaBanner, FaqSection, LogoStrip, SiteFooter, SiteNavbar + AppBar, TestimonialCard | patterns | Beta |
 
-Planned primitives (Phase 2): Select, Checkbox, Radio, Switch, Textarea, Modal, Drawer, Tabs, Toast, Tooltip, Popover, Menu, Badge, Avatar, Card, Skeleton, Progress, Breadcrumb, Pagination, Table.
-Planned patterns (Phase 3): Login, Signup, Onboarding, DataTable, Filters, StatsCard, PageHeader, SideNav, Settings, Billing, Notifications, ErrorState, ConfirmDialog.
+Planned patterns (Phase 3): Login, Signup, Onboarding, Filters, SideNav, Settings, Billing, Notifications, ErrorState, ConfirmDialog.

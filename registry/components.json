@@ -1,13 +1,23 @@
 {
   "$comment": "ARAS component registry. Single source for docs, AI tools and case-study numbers. Update with every component change.",
   "system": "ARAS",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "tokens": {
     "package": "@tamilarasan/aras-tokens",
     "cssPrefix": "--aras-",
-    "brands": ["base", "lms", "food"],
-    "themes": ["light", "dark"],
-    "densities": ["comfortable", "compact"]
+    "brands": [
+      "base",
+      "lms",
+      "food"
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "densities": [
+      "comfortable",
+      "compact"
+    ]
   },
   "components": [
     {
@@ -18,14 +28,37 @@
       "status": "beta",
       "description": "Triggers an action. One primary button per view.",
       "props": {
-        "variant": ["primary", "secondary", "tertiary", "danger"],
-        "size": ["sm", "md", "lg"],
+        "variant": [
+          "primary",
+          "secondary",
+          "tertiary",
+          "danger"
+        ],
+        "size": [
+          "sm",
+          "md",
+          "lg",
+          "icon-sm",
+          "icon-md",
+          "icon-lg"
+        ],
         "fullWidth": "boolean",
         "loading": "boolean",
-        "asChild": "boolean: render a link or other element with button styles"
+        "asChild": "boolean: render a link or other element with button styles",
+        "leftIcon": "ReactNode",
+        "rightIcon": "ReactNode"
       },
-      "a11y": ["Visible focus ring", "Min height 28px (compact sm)", "aria-busy when loading", "Icon-only buttons need aria-label"],
-      "doNot": ["Two primary buttons in one view", "Use danger for non-destructive actions", "Use a button for navigation; use asChild with <a>"]
+      "a11y": [
+        "Visible focus ring",
+        "Min height 28px (compact sm)",
+        "aria-busy when loading",
+        "Icon-only buttons need aria-label"
+      ],
+      "doNot": [
+        "Two primary buttons in one view",
+        "Use danger for non-destructive actions",
+        "Use a button for navigation; use asChild with <a>"
+      ]
     },
     {
       "name": "Input",
@@ -39,10 +72,23 @@
         "hint": "string",
         "error": "string: what is wrong and how to fix it",
         "hideLabel": "boolean: visually hidden label, for search fields only",
-        "size": ["sm", "md", "lg"]
+        "size": [
+          "sm",
+          "md",
+          "lg"
+        ]
       },
-      "a11y": ["Label linked with htmlFor", "Hint and error linked with aria-describedby", "aria-invalid on error", "Error has icon + text"],
-      "doNot": ["Placeholder as the only label", "Error messages without a fix"]
+      "a11y": [
+        "Label linked with htmlFor",
+        "Hint and error linked with aria-describedby",
+        "aria-invalid on error",
+        "Error has icon + text",
+        "Read-only fields look muted but stay readable"
+      ],
+      "doNot": [
+        "Placeholder as the only label",
+        "Error messages without a fix"
+      ]
     },
     {
       "name": "EmptyState",
@@ -57,14 +103,1177 @@
         "icon": "ReactNode (decorative)",
         "primaryAction": "{ label, onClick?, href? }",
         "secondaryAction": "{ label, onClick?, href? }",
-        "headingLevel": ["h2", "h3", "h4"]
+        "headingLevel": [
+          "h2",
+          "h3",
+          "h4"
+        ],
+        "size": [
+          "sm",
+          "md",
+          "lg"
+        ],
+        "align": [
+          "center",
+          "start"
+        ]
       },
-      "a11y": ["Correct heading level", "Icon hidden from screen readers"],
-      "doNot": ["More than one primary action", "Blame the user"]
+      "a11y": [
+        "Correct heading level",
+        "Icon hidden from screen readers"
+      ],
+      "doNot": [
+        "More than one primary action",
+        "Blame the user"
+      ]
+    },
+    {
+      "name": "Accordion",
+      "kind": "primitive",
+      "package": "@tamilarasan/aras-ui",
+      "import": "import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@tamilarasan/aras-ui';",
+      "status": "beta",
+      "description": "Stacked sections that expand and collapse.",
+      "props": {
+        "type": [
+          "single",
+          "multiple"
+        ],
+        "variant": [
+          "flush",
+          "outlined"
+        ],
+        "AccordionTrigger": "icon?, meta?, headingLevel?"
+      },
+      "a11y": [
+        "Triggers are buttons inside headings",
+        "Arrow keys move between triggers",
+        "Respects reduced motion"
+      ],
+      "doNot": [
+        "Hide essential content in a closed section",
+        "Nest accordions"
+      ]
+    },
+    {
+      "name": "Avatar",
+      "kind": "primitive",
+      "package": "@tamilarasan/aras-ui",
+      "import": "import { Avatar, AvatarGroup } from '@tamilarasan/aras-ui';",
+      "status": "beta",
+      "description": "Person or organisation image with initials fallback, status and notification count. AvatarGroup stacks avatars.",
+      "props": {
+        "name": "string (required)",
+        "src": "string",
+        "size": [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl"
+        ],
+        "shape": [
+          "circle",
+          "square"
+        ],
+        "status": [
+          "online",
+          "away",
+          "busy",
+          "offline"
+        ],
+        "notificationCount": "number"
+      },
+      "a11y": [
+        "name is the accessible name",
+        "Status announced in words"
+      ],
+      "doNot": [
+        "Use colour alone for status"
+      ]
+    },
+    {
+      "name": "Badge",
+      "kind": "primitive",
+      "package": "@tamilarasan/aras-ui",
+      "import": "import { Badge } from '@tamilarasan/aras-ui';",
+      "status": "beta",
+      "description": "Compact pill for counts and status.",
+      "props": {
+        "intent": [
+          "neutral",
+          "primary",
+          "success",
+          "warning",
+          "danger",
+          "info"
+        ],
+        "emphasis": [
+          "soft",
+          "solid",
+          "outline"
+        ],
+        "size": [
+          "sm",
+          "md"
+        ],
+        "dot": "boolean",
+        "srLabel": "string"
+      },
+      "a11y": [
+        "Always has text",
+        "srLabel adds context to bare numbers"
+      ],
+      "doNot": [
+        "Use for filter tags (use Chip)"
+      ]
+    },
+    {
+      "name": "Breadcrumb",
+      "kind": "primitive",
+      "package": "@tamilarasan/aras-ui",
+      "import": "import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from '@tamilarasan/aras-ui';",
+      "status": "beta",
+      "description": "Trail of ancestor pages.",
+      "props": {
+        "parts": "Breadcrumb > BreadcrumbList > BreadcrumbItem > BreadcrumbLink | BreadcrumbPage, BreadcrumbSeparator, BreadcrumbEllipsis"
+      },
+      "a11y": [
+        "nav landmark with ordered list",
+        "Current page has aria-current=page and is not a link"
+      ],
+      "doNot": [
+        "Link the current page"
+      ]
+    },
+    {
+      "name": "Checkbox",
+      "kind": "primitive",
+      "package": "@tamilarasan/aras-ui",
+      "import": "import { Checkbox, CheckboxField } from '@tamilarasan/aras-ui';",
+      "status": "beta",
+      "description": "Choose zero or more options. CheckboxField adds label, description and card layout.",
+      "props": {
+        "checked": "boolean | 'indeterminate'",
+        "size": [
+          "sm",
+          "md"
+        ],
+        "invalid": "boolean",
+        "CheckboxField": "label, description?, meta?, card?"
+      },
+      "a11y": [
+        "Visible label",
+        "aria-checked=mixed for indeterminate",
+        "Space toggles"
+      ],
+      "doNot": [
+        "Use for settings that apply immediately (use Switch)"
+      ]
+    },
+    {
+      "name": "Chip",
+      "kind": "primitive",
+      "package": "@tamilarasan/aras-ui",
+      "import": "import { Chip } from '@tamilarasan/aras-ui';",
+      "status": "beta",
+      "description": "Small label for status, metadata and filter tags, with optional icon and remove button.",
+      "props": {
+        "intent": [
+          "neutral",
+          "primary",
+          "success",
+          "warning",
+          "danger",
+          "info"
+        ],
+        "emphasis": [
+          "soft",
+          "solid",
+          "outline"
+        ],
+        "size": [
+          "sm",
+          "md"
+        ],
+        "icon": "ReactNode",
+        "onRemove": "() => void"
+      },
+      "a11y": [
+        "Remove button named 'Remove <label>'",
+        "Text truncates instead of breaking layout"
+      ],
+      "doNot": [
+        "Use colour alone to show meaning"
+      ]
+    },
+    {
+      "name": "Collapsible",
+      "kind": "primitive",
+      "package": "@tamilarasan/aras-ui",
+      "import": "import { Collapsible } from '@tamilarasan/aras-ui';",
+      "status": "beta",
+      "description": "One section that shows and hides extra content.",
+      "props": {
+        "title": "ReactNode (required)",
+        "variant": [
+          "plain",
+          "outlined",
+          "card"
+        ],
+        "size": [
+          "sm",
+          "md"
+        ]
+      },
+      "a11y": [
+        "Trigger has aria-expanded"
+      ],
+      "doNot": [
+        "Use for several sections (use Accordion)"
+      ]
+    },
+    {
+      "name": "FileField",
+      "kind": "primitive",
+      "package": "@tamilarasan/aras-ui",
+      "import": "import { FileField } from '@tamilarasan/aras-ui';",
+      "status": "beta",
+      "description": "File picker styled like Input; the native input stays in the page.",
+      "props": {
+        "label": "string (required)",
+        "hint": "string",
+        "error": "string",
+        "accept": "string",
+        "multiple": "boolean",
+        "size": [
+          "sm",
+          "md",
+          "lg"
+        ]
+      },
+      "a11y": [
+        "Native input keeps keyboard and screen reader support",
+        "Chosen file announced politely"
+      ],
+      "doNot": [
+        "Hide the label"
+      ]
+    },
+    {
+      "name": "Kbd",
+      "kind": "primitive",
+      "package": "@tamilarasan/aras-ui",
+      "import": "import { Kbd } from '@tamilarasan/aras-ui';",
+      "status": "beta",
+      "description": "Keyboard key for shortcuts.",
+      "props": {
+        "size": [
+          "sm",
+          "md"
+        ]
+      },
+      "a11y": [
+        "Native <kbd> element",
+        "Give symbols a readable title"
+      ],
+      "doNot": [
+        "Put several keys in one Kbd"
+      ]
+    },
+    {
+      "name": "LoadingButton",
+      "kind": "primitive",
+      "package": "@tamilarasan/aras-ui",
+      "import": "import { LoadingButton } from '@tamilarasan/aras-ui';",
+      "status": "beta",
+      "description": "Button that runs an async action and shows loading, success and error states.",
+      "props": {
+        "onAction": "() => Promise (required)",
+        "loadingLabel": "string",
+        "successLabel": "string",
+        "errorLabel": "string",
+        "countdown": "seconds, cancellable",
+        "autoResetMs": "number"
+      },
+      "a11y": [
+        "State changes announced in a live region",
+        "aria-busy while loading"
+      ],
+      "doNot": [
+        "Reimplement loading states by hand"
+      ]
+    },
+    {
+      "name": "Pagination",
+      "kind": "primitive",
+      "package": "@tamilarasan/aras-ui",
+      "import": "import { Pagination } from '@tamilarasan/aras-ui';",
+      "status": "beta",
+      "description": "Page n of m with Previous/Next and optional page numbers.",
+      "props": {
+        "page": "number",
+        "pageCount": "number",
+        "onPageChange": "(page) => void",
+        "showPageNumbers": "boolean",
+        "siblingCount": "number"
+      },
+      "a11y": [
+        "nav landmark",
+        "aria-current=page on the active page"
+      ],
+      "doNot": [
+        "Hide Previous/Next when disabled"
+      ]
+    },
+    {
+      "name": "Popover",
+      "kind": "primitive",
+      "package": "@tamilarasan/aras-ui",
+      "import": "import { Popover, PopoverTrigger, PopoverContent } from '@tamilarasan/aras-ui';",
+      "status": "beta",
+      "description": "Small floating panel for info, quick settings or a short form.",
+      "props": {
+        "PopoverContent": "wide?, showClose?, arrow?",
+        "parts": "PopoverBody, PopoverTitle, PopoverDescription, PopoverFooter"
+      },
+      "a11y": [
+        "Focus moves in and returns",
+        "Esc and outside click close"
+      ],
+      "doNot": [
+        "Use for long or blocking tasks (use Modal)"
+      ]
+    },
+    {
+      "name": "Progress",
+      "kind": "primitive",
+      "package": "@tamilarasan/aras-ui",
+      "import": "import { Progress } from '@tamilarasan/aras-ui';",
+      "status": "beta",
+      "description": "How far a task has got.",
+      "props": {
+        "value": "number (empty = indeterminate)",
+        "max": "number",
+        "label": "ReactNode",
+        "showValue": [
+          "percent",
+          "fraction",
+          false
+        ],
+        "intent": [
+          "primary",
+          "success",
+          "warning",
+          "danger"
+        ],
+        "size": [
+          "sm",
+          "md",
+          "lg"
+        ]
+      },
+      "a11y": [
+        "role=progressbar named by the label"
+      ],
+      "doNot": [
+        "Show progress without a label or aria-label"
+      ]
+    },
+    {
+      "name": "RadioGroup",
+      "kind": "primitive",
+      "package": "@tamilarasan/aras-ui",
+      "import": "import { RadioGroup, RadioGroupItem } from '@tamilarasan/aras-ui';",
+      "status": "beta",
+      "description": "One choice from 2–6 visible options.",
+      "props": {
+        "label": "ReactNode",
+        "orientation": [
+          "vertical",
+          "horizontal"
+        ],
+        "size": [
+          "sm",
+          "md"
+        ],
+        "RadioGroupItem": "label, description?, meta?, card?"
+      },
+      "a11y": [
+        "radiogroup named by its label",
+        "Arrow keys move between options"
+      ],
+      "doNot": [
+        "Use for long lists (use Select)"
+      ]
+    },
+    {
+      "name": "ScrollArea",
+      "kind": "primitive",
+      "package": "@tamilarasan/aras-ui",
+      "import": "import { ScrollArea } from '@tamilarasan/aras-ui';",
+      "status": "beta",
+      "description": "Fixed-size region with themed scrollbars.",
+      "props": {
+        "horizontal": "boolean",
+        "bordered": "boolean"
+      },
+      "a11y": [
+        "Focusable viewport, named with aria-label"
+      ],
+      "doNot": [
+        "Nest scroll areas"
+      ]
+    },
+    {
+      "name": "Select",
+      "kind": "primitive",
+      "package": "@tamilarasan/aras-ui",
+      "import": "import { Select } from '@tamilarasan/aras-ui';",
+      "status": "beta",
+      "description": "Native select with ARAS styling.",
+      "props": {
+        "label": "string (required)",
+        "options": "{ value, label, disabled? }[]",
+        "placeholder": "string",
+        "hint": "string",
+        "error": "string",
+        "size": [
+          "sm",
+          "md",
+          "lg"
+        ]
+      },
+      "a11y": [
+        "Native control: best keyboard and mobile support",
+        "Error with icon + text"
+      ],
+      "doNot": [
+        "Use for 2–6 options that should be visible (use RadioGroup)"
+      ]
+    },
+    {
+      "name": "Separator",
+      "kind": "primitive",
+      "package": "@tamilarasan/aras-ui",
+      "import": "import { Separator } from '@tamilarasan/aras-ui';",
+      "status": "beta",
+      "description": "Horizontal or vertical rule.",
+      "props": {
+        "orientation": [
+          "horizontal",
+          "vertical"
+        ],
+        "size": [
+          "sm",
+          "md"
+        ],
+        "decorative": "boolean"
+      },
+      "a11y": [
+        "Decorative by default"
+      ],
+      "doNot": []
+    },
+    {
+      "name": "Skeleton",
+      "kind": "primitive",
+      "package": "@tamilarasan/aras-ui",
+      "import": "import { Skeleton } from '@tamilarasan/aras-ui';",
+      "status": "beta",
+      "description": "Loading placeholder shaped like the real content.",
+      "props": {
+        "shape": [
+          "rect",
+          "text",
+          "circle"
+        ]
+      },
+      "a11y": [
+        "Hidden from screen readers; set aria-busy on the region"
+      ],
+      "doNot": [
+        "Show skeletons for more than a few seconds without feedback"
+      ]
+    },
+    {
+      "name": "Slider",
+      "kind": "primitive",
+      "package": "@tamilarasan/aras-ui",
+      "import": "import { Slider } from '@tamilarasan/aras-ui';",
+      "status": "beta",
+      "description": "Pick a value or range on a scale.",
+      "props": {
+        "label": "string (required)",
+        "defaultValue": "number[] (two values = range)",
+        "min": "number",
+        "max": "number",
+        "step": "number",
+        "formatValue": "(v) => string"
+      },
+      "a11y": [
+        "Each thumb is a named slider",
+        "Arrow, Page and Home/End keys"
+      ],
+      "doNot": [
+        "Use for exact numbers (use Input)"
+      ]
+    },
+    {
+      "name": "Spinner",
+      "kind": "primitive",
+      "package": "@tamilarasan/aras-ui",
+      "import": "import { Spinner } from '@tamilarasan/aras-ui';",
+      "status": "beta",
+      "description": "Inline loading indicator.",
+      "props": {
+        "size": [
+          "xs",
+          "sm",
+          "md",
+          "lg"
+        ],
+        "label": "string"
+      },
+      "a11y": [
+        "With label: role=status",
+        "Spins only when motion is allowed"
+      ],
+      "doNot": []
+    },
+    {
+      "name": "Stepper",
+      "kind": "primitive",
+      "package": "@tamilarasan/aras-ui",
+      "import": "import { Stepper } from '@tamilarasan/aras-ui';",
+      "status": "beta",
+      "description": "Progress through a multi-step flow.",
+      "props": {
+        "steps": "{ title, description?, status: pending|active|complete|error, icon? }[]",
+        "orientation": [
+          "vertical",
+          "horizontal"
+        ],
+        "descriptions": [
+          "active-only",
+          "always"
+        ],
+        "showProgressHeader": "boolean",
+        "onStepClick": "(index) => void"
+      },
+      "a11y": [
+        "Ordered list, aria-current=step",
+        "Status read in words"
+      ],
+      "doNot": [
+        "More than 7 steps"
+      ]
+    },
+    {
+      "name": "Switch",
+      "kind": "primitive",
+      "package": "@tamilarasan/aras-ui",
+      "import": "import { Switch, SwitchField } from '@tamilarasan/aras-ui';",
+      "status": "beta",
+      "description": "On/off setting that applies immediately. SwitchField adds label and description.",
+      "props": {
+        "size": [
+          "sm",
+          "md"
+        ],
+        "SwitchField": "label, description?, meta?, card?"
+      },
+      "a11y": [
+        "role=switch",
+        "State shown by position as well as colour"
+      ],
+      "doNot": [
+        "Use in forms submitted with a button (use Checkbox)"
+      ]
+    },
+    {
+      "name": "Textarea",
+      "kind": "primitive",
+      "package": "@tamilarasan/aras-ui",
+      "import": "import { Textarea } from '@tamilarasan/aras-ui';",
+      "status": "beta",
+      "description": "Multi-line text field.",
+      "props": {
+        "label": "string (required)",
+        "hint": "string",
+        "error": "string",
+        "maxLength": "number",
+        "showCount": "boolean",
+        "size": [
+          "sm",
+          "md"
+        ]
+      },
+      "a11y": [
+        "Same label/hint/error wiring as Input",
+        "Character count announced politely"
+      ],
+      "doNot": [
+        "Placeholder as the only label"
+      ]
+    },
+    {
+      "name": "Tooltip",
+      "kind": "primitive",
+      "package": "@tamilarasan/aras-ui",
+      "import": "import { Tooltip, TooltipProvider } from '@tamilarasan/aras-ui';",
+      "status": "beta",
+      "description": "Short hint on hover and focus. Wrap the app in TooltipProvider.",
+      "props": {
+        "content": "ReactNode",
+        "side": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "align": [
+          "start",
+          "center",
+          "end"
+        ]
+      },
+      "a11y": [
+        "Opens on focus as well as hover",
+        "Esc closes"
+      ],
+      "doNot": [
+        "Put essential info or links in a tooltip"
+      ]
+    },
+    {
+      "name": "VisuallyHidden",
+      "kind": "primitive",
+      "package": "@tamilarasan/aras-ui",
+      "import": "import { VisuallyHidden } from '@tamilarasan/aras-ui';",
+      "status": "beta",
+      "description": "Text for screen readers only.",
+      "props": {},
+      "a11y": [
+        "Stays in the accessibility tree"
+      ],
+      "doNot": [
+        "Hide required field labels"
+      ]
+    },
+    {
+      "name": "Card",
+      "kind": "composite",
+      "package": "@tamilarasan/aras-ui",
+      "import": "import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@tamilarasan/aras-ui';",
+      "status": "beta",
+      "description": "Bordered surface that card patterns are built on.",
+      "props": {
+        "interactive": "boolean",
+        "asChild": "boolean",
+        "elevated": "boolean",
+        "parts": "CardHeader, CardTitle, CardDescription, CardContent, CardFooter"
+      },
+      "a11y": [
+        "Interactive cards are a single link or button with a focus ring"
+      ],
+      "doNot": [
+        "Nest interactive elements inside an interactive card"
+      ]
+    },
+    {
+      "name": "DropdownMenu",
+      "kind": "composite",
+      "package": "@tamilarasan/aras-ui",
+      "import": "import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from '@tamilarasan/aras-ui';",
+      "status": "beta",
+      "description": "Actions or options anchored to a trigger, with checkbox/radio items and submenus.",
+      "props": {
+        "DropdownMenuItem": "icon?, shortcut?, intent: default|danger",
+        "parts": "Trigger, TextTrigger, Content, Item, CheckboxItem, RadioGroup/RadioItem, Label, Separator, Sub/SubTrigger/SubContent"
+      },
+      "a11y": [
+        "role=menu",
+        "Arrow keys, typeahead, Esc returns focus"
+      ],
+      "doNot": [
+        "More than 7 items per group"
+      ]
+    },
+    {
+      "name": "Form",
+      "kind": "composite",
+      "package": "@tamilarasan/aras-ui",
+      "import": "import { Form, FormHeader, FormBody, FormActions, FormField } from '@tamilarasan/aras-ui';",
+      "status": "beta",
+      "description": "Form scaffolding: Form, FormHeader, FormBody, FormRow, FormActions and FormField (labels any custom control).",
+      "props": {
+        "card": "boolean",
+        "FormField": "label, hint?, error?, required?, children: one control"
+      },
+      "a11y": [
+        "FormField wires id, aria-describedby and aria-invalid"
+      ],
+      "doNot": [
+        "More than 5–7 fields per step"
+      ]
+    },
+    {
+      "name": "Modal",
+      "kind": "composite",
+      "package": "@tamilarasan/aras-ui",
+      "import": "import { Modal, ModalTrigger, ModalContent, ModalHeader, ModalTitle, ModalBody, ModalFooter } from '@tamilarasan/aras-ui';",
+      "status": "beta",
+      "description": "Centred dialog that blocks the page.",
+      "props": {
+        "ModalContent": "size: sm|md|lg|xl, showCloseButton?",
+        "ModalFooter": "layout: end|split",
+        "parts": "ModalTrigger, ModalHeader, ModalTitle, ModalDescription, ModalBody, ModalFooter, ModalClose"
+      },
+      "a11y": [
+        "role=dialog, focus trap, Esc closes, focus returns to trigger"
+      ],
+      "doNot": [
+        "Two primary buttons",
+        "Destructive confirm without naming the thing"
+      ]
+    },
+    {
+      "name": "Sheet",
+      "kind": "composite",
+      "package": "@tamilarasan/aras-ui",
+      "import": "import { Sheet, SheetTrigger, SheetContent } from '@tamilarasan/aras-ui';",
+      "status": "beta",
+      "description": "Panel that slides in from an edge.",
+      "props": {
+        "SheetContent": "side: right|left|top|bottom",
+        "parts": "SheetTrigger, SheetHeader, SheetTitle, SheetDescription, SheetBody, SheetFooter, SheetClose"
+      },
+      "a11y": [
+        "Same as Modal"
+      ],
+      "doNot": [
+        "Use for short confirmations (use Modal)"
+      ]
+    },
+    {
+      "name": "Table",
+      "kind": "composite",
+      "package": "@tamilarasan/aras-ui",
+      "import": "import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from '@tamilarasan/aras-ui';",
+      "status": "beta",
+      "description": "Semantic table parts that scroll horizontally on small screens.",
+      "props": {
+        "density": [
+          "comfortable",
+          "compact"
+        ],
+        "footer": "ReactNode",
+        "TableRow": "selected?"
+      },
+      "a11y": [
+        "Real table markup",
+        "Add a TableCaption"
+      ],
+      "doNot": [
+        "Use divs for tabular data"
+      ]
+    },
+    {
+      "name": "Tabs",
+      "kind": "composite",
+      "package": "@tamilarasan/aras-ui",
+      "import": "import { Tabs, TabsList, TabsTrigger, TabsContent } from '@tamilarasan/aras-ui';",
+      "status": "beta",
+      "description": "Switch between related views on the same page.",
+      "props": {
+        "kind": [
+          "line",
+          "pill"
+        ],
+        "orientation": [
+          "horizontal",
+          "vertical"
+        ]
+      },
+      "a11y": [
+        "tablist/tab/tabpanel roles",
+        "Arrow keys move between tabs"
+      ],
+      "doNot": [
+        "Use tabs for sequential steps (use Stepper)"
+      ]
+    },
+    {
+      "name": "Toast",
+      "kind": "composite",
+      "package": "@tamilarasan/aras-ui",
+      "import": "import { ToastProvider, useToast } from '@tamilarasan/aras-ui';",
+      "status": "beta",
+      "description": "Short-lived notifications via ToastProvider and useToast().",
+      "props": {
+        "toast()": "{ title, description?, intent: default|success|info|warning|error|loading, duration?, action? }",
+        "toast.promise": "(work, { loading, success, error })"
+      },
+      "a11y": [
+        "Live region announcements",
+        "Errors stay until dismissed",
+        "Pause on hover/focus"
+      ],
+      "doNot": [
+        "Put essential, persistent status in a toast"
+      ]
+    },
+    {
+      "name": "PageHeader",
+      "kind": "pattern",
+      "package": "@tamilarasan/aras-patterns",
+      "import": "import { PageHeader } from '@tamilarasan/aras-patterns';",
+      "status": "beta",
+      "description": "Top of a page: breadcrumb, h1, description, actions and facts.",
+      "props": {
+        "title": "string",
+        "description": "ReactNode",
+        "eyebrow": "ReactNode",
+        "breadcrumbs": "{ label, href? }[]",
+        "actions": "ReactNode",
+        "meta": "{ label, value }[]",
+        "size": [
+          "sm",
+          "md",
+          "lg"
+        ],
+        "bordered": "boolean"
+      },
+      "a11y": [
+        "One h1 per page",
+        "Breadcrumb landmark"
+      ],
+      "doNot": [
+        "More than one primary action"
+      ]
+    },
+    {
+      "name": "StatsCard",
+      "kind": "pattern",
+      "package": "@tamilarasan/aras-patterns",
+      "import": "import { StatsCard } from '@tamilarasan/aras-patterns';",
+      "status": "beta",
+      "description": "KPI tile with simple, sparkline, ring and progress layouts.",
+      "props": {
+        "label": "string",
+        "value": "ReactNode",
+        "layout": [
+          "simple",
+          "sparkline",
+          "ring",
+          "progress"
+        ],
+        "change": "number",
+        "upIsGood": "boolean",
+        "series": "number[]",
+        "percent": "number",
+        "subStats": "{ label, value }[]"
+      },
+      "a11y": [
+        "Trend read as words",
+        "Charts are aria-hidden"
+      ],
+      "doNot": [
+        "Show a trend by colour only"
+      ]
+    },
+    {
+      "name": "AppCard",
+      "kind": "pattern",
+      "package": "@tamilarasan/aras-patterns",
+      "import": "import { ActionCard, ProfileCard, NotificationCard, PricingCard, SummaryCard } from '@tamilarasan/aras-patterns';",
+      "status": "beta",
+      "description": "General card layouts: ActionCard, ProfileCard, NotificationCard, PricingCard, SummaryCard.",
+      "props": {
+        "ActionCard": "title, description?, icon?, badge?, href?|onClick?",
+        "ProfileCard": "name, role?, status?, primaryAction?, secondaryAction?",
+        "NotificationCard": "title, body?, time, unread?, actor?|icon?, action?, onDismiss?",
+        "PricingCard": "plan, price, features, cta, highlighted?",
+        "SummaryCard": "title, rows, actions?"
+      },
+      "a11y": [
+        "Clickable cards are one link",
+        "Included/not included read in words"
+      ],
+      "doNot": [
+        "Highlight more than one pricing card"
+      ]
+    },
+    {
+      "name": "ComplianceCard",
+      "kind": "pattern",
+      "package": "@tamilarasan/aras-patterns",
+      "import": "import { ComplianceCard } from '@tamilarasan/aras-patterns';",
+      "status": "beta",
+      "description": "Card for risk, control, policy, finding, evidence and framework records.",
+      "props": {
+        "kind": [
+          "risk",
+          "control",
+          "policy",
+          "finding",
+          "evidence",
+          "framework"
+        ],
+        "status": "{ label, intent }",
+        "level": "{ label, intent }",
+        "score": "0–10",
+        "progress": "0–100",
+        "owner": "{ name }",
+        "assignees": "{ name }[]",
+        "facts": "{ label, value }[]"
+      },
+      "a11y": [
+        "Status as text chips",
+        "Score read as 'out of 10'"
+      ],
+      "doNot": [
+        "Use colour alone for severity"
+      ]
+    },
+    {
+      "name": "DataTable",
+      "kind": "pattern",
+      "package": "@tamilarasan/aras-patterns",
+      "import": "import { DataTable } from '@tamilarasan/aras-patterns';",
+      "status": "beta",
+      "description": "Table with search, filter, selection, pagination and loading/empty/error states.",
+      "props": {
+        "caption": "string",
+        "columns": "{ key, header, accessor?, cell?, align? }[]",
+        "rows": "T[]",
+        "getRowId": "(row) => string",
+        "filter": "{ label, key, options }",
+        "selectable": "boolean",
+        "pageSize": "number",
+        "rowActions": "(row) => ReactNode",
+        "loading": "boolean",
+        "error": "{ message, onRetry? }"
+      },
+      "a11y": [
+        "Caption names the table",
+        "Row checkboxes named per row",
+        "Result count announced"
+      ],
+      "doNot": [
+        "Hide the empty and error states"
+      ]
+    },
+    {
+      "name": "ContentCards",
+      "kind": "pattern",
+      "package": "@tamilarasan/aras-patterns",
+      "import": "import { FeaturedCard, BlogCard, FeatureCard } from '@tamilarasan/aras-patterns';",
+      "status": "beta",
+      "description": "FeaturedCard, BlogCard and FeatureCard for blogs and marketing pages.",
+      "props": {
+        "title": "string",
+        "excerpt": "string",
+        "imageSrc": "string",
+        "imageAlt": "string ('' if decorative)",
+        "href": "string",
+        "author": "{ name, src? }",
+        "date": "string",
+        "category": "string"
+      },
+      "a11y": [
+        "Whole card is one link named by the title"
+      ],
+      "doNot": [
+        "Images without alt"
+      ]
+    },
+    {
+      "name": "AnnouncementBar",
+      "kind": "pattern",
+      "package": "@tamilarasan/aras-patterns",
+      "import": "import { AnnouncementBar } from '@tamilarasan/aras-patterns';",
+      "status": "beta",
+      "description": "Slim strip for launches and system messages.",
+      "props": {
+        "intent": [
+          "primary",
+          "neutral",
+          "success",
+          "warning",
+          "danger"
+        ],
+        "eyebrow": "string",
+        "cta": "{ label, href }",
+        "size": [
+          "sm",
+          "md"
+        ],
+        "align": [
+          "center",
+          "start"
+        ],
+        "dismissible": "boolean",
+        "visible": "boolean",
+        "onDismiss": "() => void"
+      },
+      "a11y": [
+        "Labelled section",
+        "Dismiss button names what it closes"
+      ],
+      "doNot": [
+        "More than one sentence"
+      ]
+    },
+    {
+      "name": "CtaBanner",
+      "kind": "pattern",
+      "package": "@tamilarasan/aras-patterns",
+      "import": "import { CtaBanner } from '@tamilarasan/aras-patterns';",
+      "status": "beta",
+      "description": "Conversion block with headline, supporting line and two actions.",
+      "props": {
+        "title": "string",
+        "description": "string",
+        "primaryAction": "{ label, href?|onClick?, shortcut? }",
+        "secondaryAction": "same",
+        "tone": [
+          "brand",
+          "neutral"
+        ]
+      },
+      "a11y": [
+        "Heading level configurable"
+      ],
+      "doNot": [
+        "More than one primary action"
+      ]
+    },
+    {
+      "name": "FaqSection",
+      "kind": "pattern",
+      "package": "@tamilarasan/aras-patterns",
+      "import": "import { FaqSection } from '@tamilarasan/aras-patterns';",
+      "status": "beta",
+      "description": "FAQ heading and questions in an Accordion.",
+      "props": {
+        "title": "string",
+        "description": "string",
+        "items": "{ question, answer }[]",
+        "variant": [
+          "outlined",
+          "flush"
+        ],
+        "defaultOpen": "number"
+      },
+      "a11y": [
+        "Questions are h3 under the section h2"
+      ],
+      "doNot": []
+    },
+    {
+      "name": "LogoStrip",
+      "kind": "pattern",
+      "package": "@tamilarasan/aras-patterns",
+      "import": "import { LogoStrip } from '@tamilarasan/aras-patterns';",
+      "status": "beta",
+      "description": "Looping row of partner logos; static with reduced motion.",
+      "props": {
+        "logos": "{ src, alt, href? }[]",
+        "label": "string",
+        "static": "boolean"
+      },
+      "a11y": [
+        "Pauses on hover/focus",
+        "Duplicate loop copy hidden from screen readers"
+      ],
+      "doNot": [
+        "Logos without alt text"
+      ]
+    },
+    {
+      "name": "SiteNavbar",
+      "kind": "pattern",
+      "package": "@tamilarasan/aras-patterns",
+      "import": "import { SiteNavbar, AppBar } from '@tamilarasan/aras-patterns';",
+      "status": "beta",
+      "description": "Marketing nav with links, dropdown menus, actions and a mobile Sheet. AppBar is the compact product top bar.",
+      "props": {
+        "logo": "ReactNode",
+        "items": "({ label, href } | { label, items })[]",
+        "actions": "ReactNode",
+        "AppBar": "title, onMenuClick?, notificationCount?, user, accountItems?"
+      },
+      "a11y": [
+        "nav landmark",
+        "Mobile menu button named 'Open menu'"
+      ],
+      "doNot": [
+        "More than 7 top-level items"
+      ]
+    },
+    {
+      "name": "SiteFooter",
+      "kind": "pattern",
+      "package": "@tamilarasan/aras-patterns",
+      "import": "import { SiteFooter } from '@tamilarasan/aras-patterns';",
+      "status": "beta",
+      "description": "Marketing footer with link columns, offices and a legal strip.",
+      "props": {
+        "logo": "ReactNode",
+        "columns": "{ title, links }[]",
+        "offices": "{ city, lines }[]",
+        "copyright": "string",
+        "badges": "string[]",
+        "legalLinks": "{ label, href }[]"
+      },
+      "a11y": [
+        "footer landmark",
+        "Each column is a labelled nav"
+      ],
+      "doNot": []
+    },
+    {
+      "name": "TestimonialCard",
+      "kind": "pattern",
+      "package": "@tamilarasan/aras-patterns",
+      "import": "import { TestimonialCard } from '@tamilarasan/aras-patterns';",
+      "status": "beta",
+      "description": "Customer quote with author and optional video (YouTube opens in a Modal).",
+      "props": {
+        "quote": "string",
+        "author": "{ name, role?, src? }",
+        "videoUrl": "string",
+        "bordered": "boolean"
+      },
+      "a11y": [
+        "figure/blockquote/figcaption",
+        "Video button names the person"
+      ],
+      "doNot": [
+        "Autoplay video on page load"
+      ]
     }
   ],
   "planned": {
-    "primitives": ["Select", "Checkbox", "Radio", "Switch", "Textarea", "Modal", "Drawer", "Tabs", "Toast", "Tooltip", "Popover", "Menu", "Badge", "Avatar", "Card", "Skeleton", "Progress", "Breadcrumb", "Pagination", "Table"],
-    "patterns": ["Login", "Signup", "Onboarding", "DataTable", "Filters", "StatsCard", "PageHeader", "SideNav", "Settings", "Billing", "Notifications", "ErrorState", "ConfirmDialog"]
+    "primitives": [],
+    "patterns": [
+      "Login",
+      "Signup",
+      "Onboarding",
+      "Filters",
+      "SideNav",
+      "Settings",
+      "Billing",
+      "Notifications",
+      "ErrorState",
+      "ConfirmDialog"
+    ]
+  },
+  "icons": {
+    "package": "@tamilarasan/aras-ui",
+    "import": "import { CheckIcon } from '@tamilarasan/aras-ui';",
+    "note": "24px grid, 2px stroke, currentColor, decorative by default; pass title for meaningful icons."
   }
 }
