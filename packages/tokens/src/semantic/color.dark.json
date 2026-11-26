@@ -1,0 +1,68 @@
+{
+  "color": {
+    "$type": "color",
+    "bg": {
+      "canvas": { "$value": "{palette.gray.950}" },
+      "surface": { "$value": "{palette.gray.900}" },
+      "surface-raised": { "$value": "{palette.gray.800}" },
+      "surface-sunken": { "$value": "{palette.gray.950}" },
+      "overlay": { "$value": "#020617b3" }
+    },
+    "text": {
+      "primary": { "$value": "{palette.gray.50}" },
+      "secondary": { "$value": "{palette.gray.400}" },
+      "disabled": { "$value": "{palette.gray.600}" },
+      "inverse": { "$value": "{palette.gray.900}" },
+      "link": { "$value": "{palette.blue.300}" }
+    },
+    "border": {
+      "default": { "$value": "{palette.gray.800}" },
+      "strong": { "$value": "{palette.gray.500}" },
+      "focus": { "$value": "{palette.blue.400}" }
+    },
+    "action": {
+      "primary": {
+        "bg": { "$value": "{palette.blue.400}" },
+        "bg-hover": { "$value": "{palette.blue.300}" },
+        "fg": { "$value": "{palette.gray.950}" }
+      },
+      "secondary": {
+        "bg": { "$value": "{palette.gray.900}" },
+        "bg-hover": { "$value": "{palette.gray.800}" },
+        "fg": { "$value": "{palette.gray.50}" },
+        "border": { "$value": "{palette.gray.500}" }
+      },
+      "danger": {
+        "bg": { "$value": "{palette.red.400}" },
+        "bg-hover": { "$value": "{palette.red.300}" },
+        "fg": { "$value": "{palette.gray.950}" }
+      }
+    },
+    "brand": {
+      "subtle": { "$value": "{palette.blue.950}" },
+      "fg": { "$value": "{palette.blue.300}" }
+    },
+    "status": {
+      "success": {
+        "fg": { "$value": "{palette.green.300}" },
+        "bg": { "$value": "{palette.green.950}" },
+        "border": { "$value": "{palette.green.500}" }
+      },
+      "warning": {
+        "fg": { "$value": "{palette.amber.300}" },
+        "bg": { "$value": "{palette.amber.950}" },
+        "border": { "$value": "{palette.amber.500}" }
+      },
+      "danger": {
+        "fg": { "$value": "{palette.red.300}" },
+        "bg": { "$value": "{palette.red.950}" },
+        "border": { "$value": "{palette.red.500}" }
+      },
+      "info": {
+        "fg": { "$value": "{palette.blue.300}" },
+        "bg": { "$value": "{palette.blue.950}" },
+        "border": { "$value": "{palette.blue.500}" }
+      }
+    }
+  }
+}

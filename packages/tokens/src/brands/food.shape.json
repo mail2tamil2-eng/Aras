@@ -1,0 +1,7 @@
+{
+  "radius": {
+    "$type": "dimension",
+    "control": { "$value": "{size.radius.lg}" },
+    "card": { "$value": "{size.radius.2xl}" }
+  }
+}

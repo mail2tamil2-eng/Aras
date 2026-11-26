@@ -1,0 +1,34 @@
+{
+  "name": "@tamilarasan/aras-tokens",
+  "version": "0.1.0",
+  "description": "ARAS design tokens: primitives, semantic tokens, product brands, light/dark and density.",
+  "type": "module",
+  "license": "MIT",
+  "files": [
+    "dist",
+    "src",
+    "tailwind.css"
+  ],
+  "exports": {
+    ".": "./dist/index.css",
+    "./css": "./dist/index.css",
+    "./tailwind.css": "./tailwind.css",
+    "./tokens.json": "./dist/tokens.json",
+    "./dist/*": "./dist/*",
+    "./src/*": "./src/*"
+  },
+  "sideEffects": [
+    "*.css"
+  ],
+  "scripts": {
+    "check": "node scripts/check-contrast.mjs",
+    "build": "node scripts/check-contrast.mjs && node build.mjs",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "style-dictionary": "^4.4.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

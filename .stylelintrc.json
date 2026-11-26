@@ -1,0 +1,13 @@
+{
+  "ignoreFiles": ["**/dist/**", "**/storybook-static/**", "**/node_modules/**"],
+  "rules": {
+    "color-no-hex": [true, { "message": "ARAS: no raw hex colours. Use var(--aras-color-...)." }],
+    "color-named": ["never", { "message": "ARAS: no named colours. Use var(--aras-color-...)." }],
+    "declaration-property-unit-disallowed-list": [
+      {
+        "/^(margin|padding|gap|row-gap|column-gap|font-size|border-radius|width|height|top|right|bottom|left|inset)/": ["px", "rem", "em"]
+      },
+      { "message": "ARAS: no raw sizes. Use var(--aras-space-...) or another token." }
+    ]
+  }
+}

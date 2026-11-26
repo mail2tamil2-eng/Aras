@@ -1,0 +1,15 @@
+{
+  "control": {
+    "$type": "dimension",
+    "height": {
+      "sm": { "$value": "{size.space.7}" },
+      "md": { "$value": "{size.space.8}" },
+      "lg": { "$value": "{size.space.10}" }
+    },
+    "padding-x": {
+      "sm": { "$value": "{size.space.2}" },
+      "md": { "$value": "{size.space.3}" },
+      "lg": { "$value": "{size.space.4}" }
+    }
+  }
+}

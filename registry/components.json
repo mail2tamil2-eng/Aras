@@ -1,0 +1,70 @@
+{
+  "$comment": "ARAS component registry. Single source for docs, AI tools and case-study numbers. Update with every component change.",
+  "system": "ARAS",
+  "version": "0.1.0",
+  "tokens": {
+    "package": "@tamilarasan/aras-tokens",
+    "cssPrefix": "--aras-",
+    "brands": ["base", "lms", "food"],
+    "themes": ["light", "dark"],
+    "densities": ["comfortable", "compact"]
+  },
+  "components": [
+    {
+      "name": "Button",
+      "kind": "primitive",
+      "package": "@tamilarasan/aras-ui",
+      "import": "import { Button } from '@tamilarasan/aras-ui';",
+      "status": "beta",
+      "description": "Triggers an action. One primary button per view.",
+      "props": {
+        "variant": ["primary", "secondary", "tertiary", "danger"],
+        "size": ["sm", "md", "lg"],
+        "fullWidth": "boolean",
+        "loading": "boolean",
+        "asChild": "boolean: render a link or other element with button styles"
+      },
+      "a11y": ["Visible focus ring", "Min height 28px (compact sm)", "aria-busy when loading", "Icon-only buttons need aria-label"],
+      "doNot": ["Two primary buttons in one view", "Use danger for non-destructive actions", "Use a button for navigation; use asChild with <a>"]
+    },
+    {
+      "name": "Input",
+      "kind": "primitive",
+      "package": "@tamilarasan/aras-ui",
+      "import": "import { Input } from '@tamilarasan/aras-ui';",
+      "status": "beta",
+      "description": "Single-line text field with label, hint and error.",
+      "props": {
+        "label": "string (required)",
+        "hint": "string",
+        "error": "string: what is wrong and how to fix it",
+        "hideLabel": "boolean: visually hidden label, for search fields only",
+        "size": ["sm", "md", "lg"]
+      },
+      "a11y": ["Label linked with htmlFor", "Hint and error linked with aria-describedby", "aria-invalid on error", "Error has icon + text"],
+      "doNot": ["Placeholder as the only label", "Error messages without a fix"]
+    },
+    {
+      "name": "EmptyState",
+      "kind": "pattern",
+      "package": "@tamilarasan/aras-patterns",
+      "import": "import { EmptyState } from '@tamilarasan/aras-patterns';",
+      "status": "beta",
+      "description": "Shown when a list, table or page has no data, or a search finds nothing.",
+      "props": {
+        "title": "string",
+        "description": "string",
+        "icon": "ReactNode (decorative)",
+        "primaryAction": "{ label, onClick?, href? }",
+        "secondaryAction": "{ label, onClick?, href? }",
+        "headingLevel": ["h2", "h3", "h4"]
+      },
+      "a11y": ["Correct heading level", "Icon hidden from screen readers"],
+      "doNot": ["More than one primary action", "Blame the user"]
+    }
+  ],
+  "planned": {
+    "primitives": ["Select", "Checkbox", "Radio", "Switch", "Textarea", "Modal", "Drawer", "Tabs", "Toast", "Tooltip", "Popover", "Menu", "Badge", "Avatar", "Card", "Skeleton", "Progress", "Breadcrumb", "Pagination", "Table"],
+    "patterns": ["Login", "Signup", "Onboarding", "DataTable", "Filters", "StatsCard", "PageHeader", "SideNav", "Settings", "Billing", "Notifications", "ErrorState", "ConfirmDialog"]
+  }
+}

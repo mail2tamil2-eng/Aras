@@ -1,0 +1,6 @@
+date,product,screen,phase,rework_rounds,hours_to_approved,raw_values_in_code,axe_violations,ai_first_pass_accepted,reviewed_by,notes
+2026-11-30,LMS,Course list,before ARAS,,,,,,,
+2026-11-30,LMS,Course detail,before ARAS,,,,,,,
+2026-11-30,LMS,Learner dashboard,before ARAS,,,,,,,
+2026-11-30,LMS,Quiz,before ARAS,,,,,,,
+2026-11-30,LMS,Admin settings,before ARAS,,,,,,,

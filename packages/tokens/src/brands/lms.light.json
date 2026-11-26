@@ -1,0 +1,22 @@
+{
+  "color": {
+    "$type": "color",
+    "text": {
+      "link": { "$value": "{palette.indigo.700}" }
+    },
+    "border": {
+      "focus": { "$value": "{palette.indigo.600}" }
+    },
+    "action": {
+      "primary": {
+        "bg": { "$value": "{palette.indigo.600}" },
+        "bg-hover": { "$value": "{palette.indigo.700}" },
+        "fg": { "$value": "{palette.white}" }
+      }
+    },
+    "brand": {
+      "subtle": { "$value": "{palette.indigo.50}" },
+      "fg": { "$value": "{palette.indigo.700}" }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "color": {
+    "$type": "color",
+    "bg": {
+      "canvas": { "$value": "{palette.gray.50}", "$description": "Page background" },
+      "surface": { "$value": "{palette.white}", "$description": "Cards, inputs, panels (level 1)" },
+      "surface-raised": { "$value": "{palette.white}", "$description": "Menus, popovers, modals (level 2)" },
+      "surface-sunken": { "$value": "{palette.gray.100}", "$description": "Wells, table headers, hover rows" },
+      "overlay": { "$value": "#0f172a99", "$description": "Scrim behind modals and drawers" }
+    },
+    "text": {
+      "primary": { "$value": "{palette.gray.900}", "$description": "Headings and body text" },
+      "secondary": { "$value": "{palette.gray.600}", "$description": "Supporting text, labels, placeholders" },
+      "disabled": { "$value": "{palette.gray.400}", "$description": "Disabled text only (exempt from contrast rules)" },
+      "inverse": { "$value": "{palette.white}" },
+      "link": { "$value": "{palette.blue.700}" }
+    },
+    "border": {
+      "default": { "$value": "{palette.gray.200}", "$description": "Decorative dividers only" },
+      "strong": { "$value": "{palette.gray.500}", "$description": "Input outlines and control borders (3:1)" },
+      "focus": { "$value": "{palette.blue.600}", "$description": "Focus ring" }
+    },
+    "action": {
+      "primary": {
+        "bg": { "$value": "{palette.blue.600}" },
+        "bg-hover": { "$value": "{palette.blue.700}" },
+        "fg": { "$value": "{palette.white}" }
+      },
+      "secondary": {
+        "bg": { "$value": "{palette.white}" },
+        "bg-hover": { "$value": "{palette.gray.100}" },
+        "fg": { "$value": "{palette.gray.900}" },
+        "border": { "$value": "{palette.gray.500}" }
+      },
+      "danger": {
+        "bg": { "$value": "{palette.red.600}" },
+        "bg-hover": { "$value": "{palette.red.700}" },
+        "fg": { "$value": "{palette.white}" }
+      }
+    },
+    "brand": {
+      "subtle": { "$value": "{palette.blue.50}", "$description": "Selected rows, highlighted areas" },
+      "fg": { "$value": "{palette.blue.700}", "$description": "Brand-coloured text and icons" }
+    },
+    "status": {
+      "success": {
+        "fg": { "$value": "{palette.green.700}" },
+        "bg": { "$value": "{palette.green.50}" },
+        "border": { "$value": "{palette.green.600}" }
+      },
+      "warning": {
+        "fg": { "$value": "{palette.amber.800}" },
+        "bg": { "$value": "{palette.amber.50}" },
+        "border": { "$value": "{palette.amber.600}" }
+      },
+      "danger": {
+        "fg": { "$value": "{palette.red.700}" },
+        "bg": { "$value": "{palette.red.50}" },
+        "border": { "$value": "{palette.red.600}" }
+      },
+      "info": {
+        "fg": { "$value": "{palette.blue.700}" },
+        "bg": { "$value": "{palette.blue.50}" },
+        "border": { "$value": "{palette.blue.600}" }
+      }
+    }
+  }
+}

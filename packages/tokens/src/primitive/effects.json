@@ -1,0 +1,31 @@
+{
+  "shadow": {
+    "sm": { "$value": "0 1px 2px 0 rgb(15 23 42 / 0.06), 0 1px 3px 0 rgb(15 23 42 / 0.10)" },
+    "md": { "$value": "0 4px 6px -1px rgb(15 23 42 / 0.10), 0 2px 4px -2px rgb(15 23 42 / 0.10)" },
+    "lg": { "$value": "0 10px 15px -3px rgb(15 23 42 / 0.10), 0 4px 6px -4px rgb(15 23 42 / 0.10)" },
+    "xl": { "$value": "0 20px 25px -5px rgb(15 23 42 / 0.12), 0 8px 10px -6px rgb(15 23 42 / 0.10)" }
+  },
+  "duration": {
+    "$type": "duration",
+    "0": { "$value": "0ms" },
+    "120": { "$value": "120ms" },
+    "200": { "$value": "200ms" },
+    "320": { "$value": "320ms" }
+  },
+  "easing": {
+    "$type": "cubicBezier",
+    "standard": { "$value": "cubic-bezier(0.2, 0, 0, 1)" },
+    "enter": { "$value": "cubic-bezier(0, 0, 0, 1)" },
+    "exit": { "$value": "cubic-bezier(0.3, 0, 1, 1)" }
+  },
+  "z": {
+    "$type": "number",
+    "base": { "$value": 0 },
+    "dropdown": { "$value": 1000 },
+    "sticky": { "$value": 1100 },
+    "overlay": { "$value": 1300 },
+    "modal": { "$value": 1400 },
+    "toast": { "$value": 1500 },
+    "tooltip": { "$value": 1600 }
+  }
+}
