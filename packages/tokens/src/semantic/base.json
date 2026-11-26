@@ -1,0 +1,107 @@
+{
+  "space": {
+    "$type": "dimension",
+    "none": { "$value": "{size.space.0}" },
+    "2xs": { "$value": "{size.space.1}" },
+    "xs": { "$value": "{size.space.2}" },
+    "sm": { "$value": "{size.space.3}" },
+    "md": { "$value": "{size.space.4}" },
+    "lg": { "$value": "{size.space.6}" },
+    "xl": { "$value": "{size.space.8}" },
+    "2xl": { "$value": "{size.space.12}" },
+    "3xl": { "$value": "{size.space.16}" }
+  },
+  "radius": {
+    "$type": "dimension",
+    "control": { "$value": "{size.radius.md}" },
+    "card": { "$value": "{size.radius.lg}" },
+    "overlay": { "$value": "{size.radius.xl}" },
+    "pill": { "$value": "{size.radius.full}" }
+  },
+  "control": {
+    "$type": "dimension",
+    "height": {
+      "sm": { "$value": "{size.space.8}" },
+      "md": { "$value": "{size.space.10}" },
+      "lg": { "$value": "{size.space.12}" }
+    },
+    "padding-x": {
+      "sm": { "$value": "{size.space.3}" },
+      "md": { "$value": "{size.space.4}" },
+      "lg": { "$value": "{size.space.5}" }
+    },
+    "target-min": { "$value": "{size.space.11}", "$description": "Touch target minimum on mobile (44px). WCAG 2.2 AA minimum is 24px." }
+  },
+  "text": {
+    "family": {
+      "$type": "fontFamily",
+      "body": { "$value": "{font.family.sans}" },
+      "code": { "$value": "{font.family.mono}" }
+    },
+    "display": {
+      "size": { "$type": "dimension", "$value": "{font.size.48}" },
+      "line-height": { "$type": "dimension", "$value": "{font.line-height.56}" },
+      "weight": { "$type": "fontWeight", "$value": "{font.weight.bold}" }
+    },
+    "h1": {
+      "size": { "$type": "dimension", "$value": "{font.size.36}" },
+      "line-height": { "$type": "dimension", "$value": "{font.line-height.44}" },
+      "weight": { "$type": "fontWeight", "$value": "{font.weight.bold}" }
+    },
+    "h2": {
+      "size": { "$type": "dimension", "$value": "{font.size.30}" },
+      "line-height": { "$type": "dimension", "$value": "{font.line-height.38}" },
+      "weight": { "$type": "fontWeight", "$value": "{font.weight.semibold}" }
+    },
+    "h3": {
+      "size": { "$type": "dimension", "$value": "{font.size.24}" },
+      "line-height": { "$type": "dimension", "$value": "{font.line-height.32}" },
+      "weight": { "$type": "fontWeight", "$value": "{font.weight.semibold}" }
+    },
+    "body": {
+      "size": { "$type": "dimension", "$value": "{font.size.16}" },
+      "line-height": { "$type": "dimension", "$value": "{font.line-height.24}" },
+      "weight": { "$type": "fontWeight", "$value": "{font.weight.regular}" }
+    },
+    "small": {
+      "size": { "$type": "dimension", "$value": "{font.size.14}" },
+      "line-height": { "$type": "dimension", "$value": "{font.line-height.20}" },
+      "weight": { "$type": "fontWeight", "$value": "{font.weight.regular}" }
+    },
+    "caption": {
+      "size": { "$type": "dimension", "$value": "{font.size.12}" },
+      "line-height": { "$type": "dimension", "$value": "{font.line-height.16}" },
+      "weight": { "$type": "fontWeight", "$value": "{font.weight.medium}" }
+    }
+  },
+  "elevation": {
+    "card": { "$value": "{shadow.sm}" },
+    "dropdown": { "$value": "{shadow.md}" },
+    "toast": { "$value": "{shadow.lg}" },
+    "modal": { "$value": "{shadow.xl}" }
+  },
+  "motion": {
+    "duration": {
+      "$type": "duration",
+      "fast": { "$value": "{duration.120}" },
+      "base": { "$value": "{duration.200}" },
+      "slow": { "$value": "{duration.320}" }
+    },
+    "easing": {
+      "$type": "cubicBezier",
+      "standard": { "$value": "{easing.standard}" },
+      "enter": { "$value": "{easing.enter}" },
+      "exit": { "$value": "{easing.exit}" }
+    }
+  },
+  "layer": {
+    "$type": "number",
+    "base": { "$value": "{z.base}" },
+    "dropdown": { "$value": "{z.dropdown}" },
+    "sticky": { "$value": "{z.sticky}" },
+    "overlay": { "$value": "{z.overlay}" },
+    "modal": { "$value": "{z.modal}" },
+    "toast": { "$value": "{z.toast}" },
+    "tooltip": { "$value": "{z.tooltip}" }
+  }
+}

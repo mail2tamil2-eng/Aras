@@ -1,0 +1,7 @@
+@import "tailwindcss";
+@import "@tamilarasan/aras-tokens/tailwind.css";
+
+/* Tell Tailwind where ARAS classes are used */
+@source "../../../packages/ui/src";
+@source "../../../packages/patterns/src";
+@source "./";

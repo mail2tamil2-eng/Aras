@@ -1,0 +1,29 @@
+{
+  "name": "aras",
+  "private": true,
+  "packageManager": "pnpm@10.28.0",
+  "description": "ARAS: one design system for every product.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "turbo run storybook --filter=@tamilarasan/aras-docs",
+    "build": "turbo run build",
+    "docs:build": "turbo run build-storybook --filter=@tamilarasan/aras-docs",
+    "tokens:check": "pnpm --filter @tamilarasan/aras-tokens check",
+    "typecheck": "turbo run typecheck",
+    "lint": "eslint . && stylelint \"**/*.css\"",
+    "changeset": "changeset",
+    "release": "turbo run build && changeset publish"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.0",
+    "eslint": "^9.15.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "stylelint": "^16.10.0",
+    "turbo": "^2.3.0",
+    "typescript": "^5.6.0",
+    "typescript-eslint": "^8.15.0"
+  }
+}

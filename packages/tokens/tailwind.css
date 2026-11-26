@@ -1,0 +1,125 @@
+/*
+  ARAS → Tailwind CSS v4 bridge.
+  Import this once in each product's main CSS file, after Tailwind:
+
+    @import "tailwindcss";
+    @import "@tamilarasan/aras-tokens/tailwind.css";
+
+  It removes Tailwind's default colours, font sizes, radii and shadows,
+  so only ARAS tokens can be used (bg-surface, text-fg, rounded-control, text-h1 ...).
+*/
+@import "./dist/index.css";
+
+@theme inline {
+  /* Reset Tailwind defaults: tokens only */
+  --color-*: initial;
+  --text-*: initial;
+  --radius-*: initial;
+  --shadow-*: initial;
+  --font-*: initial;
+
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  /* Surfaces */
+  --color-canvas: var(--aras-color-bg-canvas);
+  --color-surface: var(--aras-color-bg-surface);
+  --color-surface-raised: var(--aras-color-bg-surface-raised);
+  --color-surface-sunken: var(--aras-color-bg-surface-sunken);
+  --color-overlay: var(--aras-color-bg-overlay);
+
+  /* Text */
+  --color-fg: var(--aras-color-text-primary);
+  --color-fg-secondary: var(--aras-color-text-secondary);
+  --color-fg-disabled: var(--aras-color-text-disabled);
+  --color-fg-inverse: var(--aras-color-text-inverse);
+  --color-link: var(--aras-color-text-link);
+
+  /* Borders */
+  --color-border: var(--aras-color-border-default);
+  --color-border-strong: var(--aras-color-border-strong);
+  --color-focus: var(--aras-color-border-focus);
+
+  /* Actions */
+  --color-primary: var(--aras-color-action-primary-bg);
+  --color-primary-hover: var(--aras-color-action-primary-bg-hover);
+  --color-on-primary: var(--aras-color-action-primary-fg);
+  --color-secondary: var(--aras-color-action-secondary-bg);
+  --color-secondary-hover: var(--aras-color-action-secondary-bg-hover);
+  --color-on-secondary: var(--aras-color-action-secondary-fg);
+  --color-secondary-border: var(--aras-color-action-secondary-border);
+  --color-danger: var(--aras-color-action-danger-bg);
+  --color-danger-hover: var(--aras-color-action-danger-bg-hover);
+  --color-on-danger: var(--aras-color-action-danger-fg);
+
+  /* Brand */
+  --color-brand-subtle: var(--aras-color-brand-subtle);
+  --color-brand: var(--aras-color-brand-fg);
+
+  /* Status */
+  --color-success-fg: var(--aras-color-status-success-fg);
+  --color-success-bg: var(--aras-color-status-success-bg);
+  --color-success-border: var(--aras-color-status-success-border);
+  --color-warning-fg: var(--aras-color-status-warning-fg);
+  --color-warning-bg: var(--aras-color-status-warning-bg);
+  --color-warning-border: var(--aras-color-status-warning-border);
+  --color-danger-fg: var(--aras-color-status-danger-fg);
+  --color-danger-bg: var(--aras-color-status-danger-bg);
+  --color-danger-border: var(--aras-color-status-danger-border);
+  --color-info-fg: var(--aras-color-status-info-fg);
+  --color-info-bg: var(--aras-color-status-info-bg);
+  --color-info-border: var(--aras-color-status-info-border);
+
+  /* Type scale: 7 steps (text-display ... text-caption) */
+  --font-sans: var(--aras-text-family-body);
+  --font-mono: var(--aras-text-family-code);
+
+  --text-display: var(--aras-text-display-size);
+  --text-display--line-height: var(--aras-text-display-line-height);
+  --text-display--font-weight: var(--aras-text-display-weight);
+  --text-h1: var(--aras-text-h1-size);
+  --text-h1--line-height: var(--aras-text-h1-line-height);
+  --text-h1--font-weight: var(--aras-text-h1-weight);
+  --text-h2: var(--aras-text-h2-size);
+  --text-h2--line-height: var(--aras-text-h2-line-height);
+  --text-h2--font-weight: var(--aras-text-h2-weight);
+  --text-h3: var(--aras-text-h3-size);
+  --text-h3--line-height: var(--aras-text-h3-line-height);
+  --text-h3--font-weight: var(--aras-text-h3-weight);
+  --text-body: var(--aras-text-body-size);
+  --text-body--line-height: var(--aras-text-body-line-height);
+  --text-body--font-weight: var(--aras-text-body-weight);
+  --text-small: var(--aras-text-small-size);
+  --text-small--line-height: var(--aras-text-small-line-height);
+  --text-small--font-weight: var(--aras-text-small-weight);
+  --text-caption: var(--aras-text-caption-size);
+  --text-caption--line-height: var(--aras-text-caption-line-height);
+  --text-caption--font-weight: var(--aras-text-caption-weight);
+
+  /* Shape */
+  --radius-control: var(--aras-radius-control);
+  --radius-card: var(--aras-radius-card);
+  --radius-overlay: var(--aras-radius-overlay);
+  --radius-pill: var(--aras-radius-pill);
+
+  /* Elevation */
+  --shadow-card: var(--aras-elevation-card);
+  --shadow-dropdown: var(--aras-elevation-dropdown);
+  --shadow-toast: var(--aras-elevation-toast);
+  --shadow-modal: var(--aras-elevation-modal);
+
+  /* Motion */
+  --ease-standard: var(--aras-motion-easing-standard);
+  --ease-enter: var(--aras-motion-easing-enter);
+  --ease-exit: var(--aras-motion-easing-exit);
+}
+
+/* Base page styles */
+@layer base {
+  html {
+    font-family: var(--aras-text-family-body);
+    background-color: var(--aras-color-bg-canvas);
+    color: var(--aras-color-text-primary);
+    -webkit-font-smoothing: antialiased;
+  }
+}

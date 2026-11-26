@@ -1,0 +1,47 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Introduction" />
+
+# ARAS Design System
+
+ARAS is one design system for every product: the B2B LMS, "What to Cook Today?", client work and whatever comes next.
+A new product changes **one theme file**. Components never change.
+
+Use the toolbar above to switch **Theme** (light / dark), **Brand** (Base, LMS, Food) and **Density** (comfortable / compact).
+Every story is checked for WCAG 2.2 AA in the **Accessibility** panel.
+
+## How ARAS is built
+
+1. **Primitive tokens**: raw values (`palette.blue.600`, `size.space.4`). Never used directly in components.
+2. **Semantic tokens**: meaning (`color.action.primary.bg`, `color.text.secondary`). Components use only these.
+3. **Brand themes**: each product overrides semantic tokens only (`src/brands/lms.light.json`).
+4. **Primitives**: Button, Input and more, built on Radix.
+5. **Patterns**: EmptyState and more SaaS patterns, built only from primitives.
+
+## The rules
+
+- **One primary action per view.** Use secondary and tertiary for everything else.
+- **Tokens only.** No raw hex colours or pixel values. Lint fails the build if you try.
+- **WCAG 2.2 AA by default.** The token build fails if any theme drops below 4.5:1 for text or 3:1 for UI parts.
+- **Code is the source of truth.** Figma mirrors it. A change in only one of them is not finished.
+
+## Install in a product
+
+```bash
+pnpm add @tamilarasan/aras-tokens @tamilarasan/aras-ui @tamilarasan/aras-patterns
+```
+
+```css
+/* app.css */
+@import "tailwindcss";
+@import "@tamilarasan/aras-tokens/tailwind.css";
+@source "../node_modules/@tamilarasan/aras-ui/dist";
+@source "../node_modules/@tamilarasan/aras-patterns/dist";
+```
+
+```html
+<!-- Pick the product brand, colour mode and density on <html> -->
+<html data-brand="lms" data-theme="light" data-density="comfortable">
+```
+
+Full rules for designers and AI tools: `DESIGN.md` and `AGENTS.md` in the repository.

@@ -1,0 +1,22 @@
+{
+  "color": {
+    "$type": "color",
+    "text": {
+      "link": { "$value": "{palette.orange.300}" }
+    },
+    "border": {
+      "focus": { "$value": "{palette.orange.400}" }
+    },
+    "action": {
+      "primary": {
+        "bg": { "$value": "{palette.orange.400}" },
+        "bg-hover": { "$value": "{palette.orange.300}" },
+        "fg": { "$value": "{palette.gray.950}" }
+      }
+    },
+    "brand": {
+      "subtle": { "$value": "{palette.orange.950}" },
+      "fg": { "$value": "{palette.orange.300}" }
+    }
+  }
+}
